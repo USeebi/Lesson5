@@ -1,18 +1,7 @@
-# ros_tutorials
-Tutorials with ROS: Find videos on my channel https://www.youtube.com/channel/UC2aPsByptP3HXobjXgsXQsA?view_as=subscriber
+# Lesson5
 
-------- Setup the ROS_MASTER_URI -----------
-If ROS Master runs on the Raspberry Pi, you need to set 
-export ROS_MASTER_URI=http://ubiquityrobot.local:11311
+These are resources to join Lesson 5.
 
-In case you are running ROS Master on your local host, set
-export ROS_MASTER_URI=http://localhost:11311
+- yocs_cmd_vel_mux is imported from https://github.com/yujinrobot/yujin_ocs
+- robot_vision is imported from https://github.com/guyuehome/ros_basic_tutorials/tree/master/robot_vision_beginner
 
-To speedup the process you can edit ~.bashrc with:
-
-source ~/catkin_ws/devel/setup.bash
-export ROS_IP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
-
-export ROS_MASTER_URI=http://ubiquityrobot.local:11311
-or 
-export ROS_MASTER_URI=http://localhost:11311
