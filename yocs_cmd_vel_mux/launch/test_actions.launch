@@ -1,0 +1,16 @@
+<launch>
+
+    <remap from="/cmd_vel" to="/yocs_cmd_vel_mux/output/cmd_vel" />
+    <include file="$(find tarkbot_robot)/launch/robot.launch"/>
+    <include file="$(find ydlidar_ros_driver)/launch/X3.launch"/>
+    <include file="$(find robot_vision)/launch/usb_cam.launch"/>
+    <include file="$(find yocs_cmd_vel_mux)/launch/standalone.launch"/>
+
+    <node pkg="donkey_car" name="chase_ball" type="chase_the_ball.py" output="screen" >
+        <remap from="/control/cmd_vel" to="/yocs_cmd_vel_mux/input/opencv" />
+    </node>
+    <node pkg="opencv" name="blob_finder" type="find_ball.py" output="screen" >
+
+    </node>
+
+</launch>

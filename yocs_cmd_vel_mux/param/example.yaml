@@ -23,8 +23,8 @@ subscribers:
     timeout:     0.5
     priority:    1
     short_desc:  "Navigation stack controller"
-  - name:        "Onboard joystick"
-    topic:       "input/joystick"
+  - name:        "Onboard OpenCV"
+    topic:       "input/OpenCV"
     timeout:     0.1
     priority:    10
   - name:        "Remote control"
