@@ -6,7 +6,7 @@ Subscribes to
     /blob/point_blob
     
 Publishes commands to 
-    /dkcar/control/cmd_vel    
+    /control/cmd_vel    
 
 """
 import math, time
@@ -31,7 +31,7 @@ class ChaseBall():
         self.sub_center = rospy.Subscriber("/blob/point_blob", Point, self.update_ball)
         rospy.loginfo("Subscribers set")
         
-        self.pub_twist = rospy.Publisher("/dkcar/control/cmd_vel", Twist, queue_size=5)
+        self.pub_twist = rospy.Publisher("/control/cmd_vel", Twist, queue_size=5)
         rospy.loginfo("Publisher set")
         
         self._message = Twist()
