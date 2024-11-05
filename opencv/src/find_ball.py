@@ -14,7 +14,7 @@ ON THE RASPI: roslaunch raspicam_node camerav2_320x240.launch enable_raw:=true
 
 
 SUBSCRIBES TO:
-    /raspicam_node/image: Source image topic
+    /usb_cam/image: Source image topic
     
 PUBLISHES TO:
     /blob/image_blob : image with detected blob and search window
@@ -61,8 +61,8 @@ class BlobDetector:
         self.blob_pub  = rospy.Publisher("/blob/point_blob",Point,queue_size=1)
 
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("/raspicam_node/image",Image,self.callback)
-        print ("<< Subscribed to topic /raspicam_node/image")
+        self.image_sub = rospy.Subscriber("/usb_cam/image",Image,self.callback)
+        print ("<< Subscribed to topic /usb_cam/image")
         
     def set_threshold(self, thr_min, thr_max):
         self._threshold = [thr_min, thr_max]
