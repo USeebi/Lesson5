@@ -1,0 +1,19 @@
+<launch>
+	<arg name="enable_raw" default="true"/>
+  	<arg name="camera_id" default="0"/>
+  	<arg name="camera_frame_id" default="usb_cam"/>
+  	<arg name="camera_name" default="camerav2_320x240"/>
+
+  	<node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+		<param name="video_device" value="/dev/video0" />
+		<param name="image_width" value="640" />
+		<param name="image_height" value="480" />
+		<param name="pixel_format" value="mjpeg" />
+		<param name="camera_frame_id" value="usb_cam" />
+		<param name="io_method" value="mmap"/>
+	</node>
+	<node pkg="opencv" name="find" type="find_ball.py" output="screen" >
+	</node>
+  <node name="image_view" pkg="rqt_image_view" type="rqt_image_view" />
+
+</launch>
